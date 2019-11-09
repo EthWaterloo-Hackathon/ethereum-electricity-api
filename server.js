@@ -12,4 +12,4 @@ app.get('/consumption', async (_req, res) => {
   });
 });
 
-app.listen(process.env.port || 3000, () => console.log('listening'));
+app.listen(process.env.PORT || 3000, () => console.log('listening'));
