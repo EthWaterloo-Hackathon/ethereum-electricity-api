@@ -8,6 +8,7 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
     "express": "^4.17.1",
-    "needle": "^2.4.0"
+    "needle": "^2.4.0",
+    "web3": "^1.2.2"
   }
 }
