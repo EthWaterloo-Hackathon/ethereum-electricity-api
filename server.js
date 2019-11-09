@@ -47,10 +47,10 @@ const getLatestBlock = () => {
         console.log(`Null average, sum was ${sum}.`);
       } else {
         gasAverage = avg;
-      }
-
-      setTimeout(() => getLatestBlock(), 1000);
+      }            
     }
+
+    setTimeout(() => getLatestBlock(), 1000);
   });
 };
 
