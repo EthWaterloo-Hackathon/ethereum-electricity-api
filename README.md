@@ -10,7 +10,7 @@ Returns the avg MWh consumed per transaction (**E**)
 ### /grid-emission-factor
 Returns China's nationwide grid emission factor in tons of CO2 per MWh (**F**)
 
-### /gas-usage
+### /gas-usage
 Returns the avg gas spent per transaction calculated from the last 500k blocks (**G**)
 
 ## Formula

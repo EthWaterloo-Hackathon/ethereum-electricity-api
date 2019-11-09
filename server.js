@@ -9,7 +9,7 @@ const BLOCK_LIMIT = 500000;
 let latestBlocks = [];
 let gasAverage = 0;
 
-setInterval(() => {
+const getLatestBlock = () => {
   needle.post('http://mainnet.mudit.blog/', {
     jsonrpc: '2.0',
     method: 'eth_getBlockByNumber',
@@ -36,12 +36,25 @@ setInterval(() => {
         avgGasPerTransaction,
       });
 
-      gasAverage = Math.floor(latestBlocks.reduce((prev, cur) => {
+      console.log(`Calculating gas average for ${latestBlocks.length} blocks`);
+      const sum = latestBlocks.reduce((prev, cur) => {
         return prev + cur.avgGasPerTransaction;
-      }, 0) / latestBlocks.length);
+      }, 0);    
+      const avg = Math.floor(sum / latestBlocks.length);
+
+      // For debugging purposes. For some reason the value becomes null at some point
+      if (avg === null) {
+        console.log(`Null average, sum was ${sum}.`);
+      } else {
+        gasAverage = avg;
+      }
+
+      setTimeout(getLatestBlock, 1000);
     }
   });
-}, 1000);
+};
+
+getLatestBlock();
 
 app.get('/electricity-consumption', async (_req, res) => {
   needle.get('https://digiconomist.net/ethereum-energy-consumption', (_err, resp) => {
