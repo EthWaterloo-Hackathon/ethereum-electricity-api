@@ -49,7 +49,7 @@ const getLatestBlock = () => {
         gasAverage = avg;
       }
 
-      setTimeout(getLatestBlock, 1000);
+      setTimeout(() => getLatestBlock(), 1000);
     }
   });
 };
