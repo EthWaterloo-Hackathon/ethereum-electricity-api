@@ -38,7 +38,7 @@ const getLatestBlock = () => {
 
       console.log(`Calculating gas average for ${latestBlocks.length} blocks`);
       const sum = latestBlocks.reduce((prev, cur) => {
-        return prev + cur.avgGasPerTransaction;
+        return prev + (cur.avgGasPerTransaction || 0);
       }, 0);
       const avg = Math.floor(sum / latestBlocks.length);
 
