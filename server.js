@@ -39,13 +39,14 @@ const getLatestBlock = () => {
       console.log(`Calculating gas average for ${latestBlocks.length} blocks`);
       const sum = latestBlocks.reduce((prev, cur) => {
         return prev + cur.avgGasPerTransaction;
-      }, 0);    
+      }, 0);
       const avg = Math.floor(sum / latestBlocks.length);
 
       // For debugging purposes. For some reason the value becomes null at some point
       if (avg === null) {
         console.log(`Null average, sum was ${sum}.`);
       } else {
+        console.log(`New gas average is ${gasAverage}.`);
         gasAverage = avg;
       }            
     }
