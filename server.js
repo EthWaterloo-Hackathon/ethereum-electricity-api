@@ -43,7 +43,7 @@ const getLatestBlock = () => {
       const avg = Math.floor(sum / latestBlocks.length);
 
       // For debugging purposes. For some reason the value becomes null at some point
-      if (avg === null) {
+      if (avg === NaN) {
         console.log(`Null average, sum was ${sum}.`);
       } else {
         console.log(`New gas average is ${gasAverage}.`);
